@@ -101,12 +101,59 @@ mail to: hiramatsu3300@gmail.com
         } 
     } 
 
+`windows powerShell`
+```
+npm run dev-build
+npm run prod-build
+```
 
-# 技術情報全般
+
+## seo google Serch Console 
+`public>index.html`
+```
+<meta name="google-site-verification" content="UgsFRqWO83pOVWWm_vmlvKV2C3Qusnr8n80XkQ2h6tU" />
+```
+`public>sitemap>sitemap.xml`
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+  <url>
+    <loc>http://www.tourdehdr.sakura.ne.jp/web3/start-v2/#/</loc>
+    <lastmod>2019-04-16</lastmod>
+    <priority>0.9</priority>
+  </url>
+</urlset>
+
+```
 
 
-## seo
+## seo google Analistics 
+```
+npm install vue-analytics
+```
+`public>sitemap>sitemap.xml`
+```
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import VueAnalytics from "vue-analytics";
 
+import axios from "axios";
+Vue.prototype.$axios = axios;
+Vue.config.productionTip = false;
+
+Vue.use(VueAnalytics, {
+  id: "UA-35511262-4",
+  router
+});
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");
+```
 
 # 開発環境
 
