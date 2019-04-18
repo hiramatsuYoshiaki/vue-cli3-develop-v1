@@ -34,7 +34,7 @@ Seamless Page Transitionは、シームレスなページ遷移を実装する�
 ## インストール
  
 $ md new-project 
-$ git clone https://github.com/hiramatsuYoshiaki/vue-cli3-develop-v1.git 
+$ git clone https://github.com/hiramatsuYoshiaki/vue-cli3-develop-v1.git
 $ cd vue-cli3-unit-alprime 
 $ npm install 
  
@@ -61,15 +61,48 @@ mail to: hiramatsu3300@gmail.com
 
 ***
 
+# デプロイ設定
+`package.json`  
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        
+        "dev-serve": "vue-cli-service serve --mode development",
+        "prod-serve": "vue-cli-service serve --mode prodcution",
+        
+        "dev-build": "vue-cli-service build --mode development",
+        "prod-build": "vue-cli-service build --mode prodcution"
+    },
+`env.development` 
+    NODE_ENV='development' 
+
+`env.prodcution` 
+    NODE_ENV='production' 
+
+`vue.config.js` 
+    if (process.env.NODE_ENV === 'production') {
+        console.log('production-----------');
+        module.exports ={
+            //outputDir: 'dist',
+            publicPath: './'
+        }
+    }else{
+        console.log('devlopment------------');
+        module.exports = {
+            outputDir: 'docs',
+            assetsDir: './',
+            publicPath: './'
+        }
+    }
+
+# 技術情報全般
 
 
-#　技術情報全般
+## seo
 
 
-##　seo
-
-
-#　開発環境
+# 開発環境
 
 
 # vue-cli3-unit  
